@@ -7,13 +7,13 @@ using System.Web.Mvc;
 
 namespace Projeto01.Controllers
 {
-    public class CategoriasController : Controller
+    public class FabricantesController : Controller
     {
         private readonly EFContext context = new EFContext();
-
+        // GET: Fabricantes
         public ActionResult Index()
         {
-            return View(context.Categorias.OrderBy(c => c.Nome));
+            return View(context.Fabricantes.OrderBy(c => c.Nome));
         }
 
         public ActionResult Create()
@@ -23,79 +23,82 @@ namespace Projeto01.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Categoria categoria)
+        public ActionResult Create(Fabricante fabricante)
         {
-            context.Categorias.Add(categoria);
+            context.Fabricantes.Add(fabricante);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
 
+        // GET:Fabricantes/Edit/5
         public ActionResult Edit(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria  = context.Categorias.Find(id);
-            if (categoria == null)
+            Fabricante fabricante = context.Fabricantes.Find(id);
+            if (fabricante == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(fabricante);
         }
 
+        // POST: Fabricantes/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Categoria categoria)
+        public ActionResult Edit(Fabricante fabricante)
         {
             if (ModelState.IsValid)
             {
-                context.Entry(categoria).State = EntityState.Modified;
+                context.Entry(fabricante).State = EntityState.Modified;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(categoria);
+            return View(fabricante);
         }
 
+        // GET: Testes/Details/5
         public ActionResult Details(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = context.Categorias.Find(id);
-            if (categoria == null)
+            Fabricante fabricante = context.Fabricantes.Find(id);
+            if (fabricante == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(fabricante);
         }
 
+        //GET: Fabricantes/Delete/5
         public ActionResult Delete(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = context.Categorias.Find(id);
-            if (categoria == null)
+            Fabricante fabricante = context.Fabricantes.Find(id);
+            if (fabricante == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(fabricante);
         }
 
+        // POST: Fabricantes/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(long id)
         {
-            Categoria categoria = context.Categorias.Find(id);
-            context.Categorias.Remove(categoria);
+            Fabricante fabricante = context.Fabricantes.Find(id);
+            context.Fabricantes.Remove(fabricante);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
 
     }
 }
