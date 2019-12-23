@@ -26,3 +26,16 @@
         @Html.ActionLink("Retornar para a listagem", "Index", null, new { @class = "btn btn-info" })
     </div>
 </div>
+
+@Html.Partial("~/Views/Produtos/_PorFabricante.cshtml", Model.Produtos.ToList())
+
+@section ScriptPage{
+    <script src="@Url.Content("~/scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/scripts/jquery.validate.unobtrusive.min.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liFabricantes').addClass("active");
+        });
+    </script>
+}
