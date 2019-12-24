@@ -286,16 +286,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contexts\EFContext.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Categoria.cs" />
-    <Compile Include="Models\Fabricante.cs" />
-    <Compile Include="Models\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -309,6 +305,12 @@
     <Content Include="Views\Produtos\Delete.cshtml" />
     <Content Include="Views\Produtos\_PorFabricante.cshtml" />
     <Content Include="Views\Produtos\_PorCategoria.cshtml" />
+    <Content Include="Views\Produtos\_PartialDetailsContentPanel.cshtml" />
+    <Content Include="Views\Fabricantes\_PartialDetailsContentPanel.cshtml" />
+    <Content Include="Views\Categorias\_PartialDetailsContentPanel.cshtml" />
+    <Content Include="Views\Categorias\_PartialCreateEditPanel.cshtml" />
+    <Content Include="Views\Fabricantes\_PartialCreateEditPanel.cshtml" />
+    <Content Include="Views\Produtos\_PartialCreateEditPanel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -318,6 +320,22 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Contexts\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{3d6dc27f-ed36-4945-84ee-11d2527833b2}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistencia\Persistencia.csproj">
+      <Project>{bf70b747-6677-425e-8969-f3f9d02609c8}</Project>
+      <Name>Persistencia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servico\Servico.csproj">
+      <Project>{99db8176-39e9-441d-8d9c-536488db58b6}</Project>
+      <Name>Servico</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

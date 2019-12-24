@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Projeto01.Modelo.Cadastros;
 
-namespace Projeto01.Models
+namespace Projeto01.Modelo.Tabelas
 {
     public class Produto
     {

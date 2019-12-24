@@ -1,10 +1,18 @@
-﻿using Projeto01.Models;
+﻿using Projeto01.Modelo.Cadastros;
+using Projeto01.Modelo.Tabelas;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace Projeto01.Contexts
+namespace Projeto01.Persistencia.Contexts
 {
     public class EFContext : DbContext
     {
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
+
         public EFContext() : base("Asp_Net_MVC_CS") {
             Database.SetInitializer<EFContext>(new DropCreateDatabaseIfModelChanges<EFContext>());
         }
