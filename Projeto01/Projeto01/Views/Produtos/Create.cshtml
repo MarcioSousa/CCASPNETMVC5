@@ -14,10 +14,7 @@
             Registro de um NOVO PRODUTO
         </div>
         <div class="panel-body">
-            <div class="form-horizontal">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.Partial("~/Views/Produtos/_PartialCreateEditPanel.cshtml", Model)
-            </div>
+            @Html.Partial("~/Views/Produtos/_PartialEditContentPanel.cshtml", Model)
             <div class="panel-footer panel-info">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Adicionar Produto" class="btn btn-danger" />

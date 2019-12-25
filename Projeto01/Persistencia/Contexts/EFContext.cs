@@ -1,4 +1,5 @@
-﻿using Projeto01.Modelo.Cadastros;
+﻿using Persistencia.Migrations;
+using Projeto01.Modelo.Cadastros;
 using Projeto01.Modelo.Tabelas;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -14,7 +15,7 @@ namespace Projeto01.Persistencia.Contexts
         }
 
         public EFContext() : base("Asp_Net_MVC_CS") {
-            Database.SetInitializer<EFContext>(new DropCreateDatabaseIfModelChanges<EFContext>());
+            Database.SetInitializer<EFContext>(new MigrateDatabaseToLatestVersion<EFContext, Configuration>());
         }
 
         public DbSet<Categoria> Categorias { get; set; }

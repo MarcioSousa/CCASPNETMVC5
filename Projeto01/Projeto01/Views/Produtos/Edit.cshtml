@@ -17,9 +17,8 @@
             <div class="form-horizontal">
                 <h4>Produto</h4>
                 <br />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.ProdutoId)
-                @Html.Partial("~/Views/Produtos/_PartialCreateEditPanel.cshtml", Model)
+                @Html.Partial("~/Views/Produtos/_PartialEditContentPanel.cshtml", Model)
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Gravar alterações" class="btn btn-default" />
@@ -27,11 +26,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 }
-
 
 @section ScriptPage{
     <script src="@Url.Content("~/scripts/DataTables/jquery.dataTables.js")"></script>
